@@ -166,7 +166,7 @@ export const PicksSocialsComponent: FC<{
                       (p) => p.integration.id === integration.id
                     ) === -1
                       ? 'border-transparent'
-                      : 'border-[#622FF6]',
+                      : 'border-btnPrimary',
                     !isBrandMark(integration.identifier) &&
                       dimChannel(integration)
                   )}

@@ -1046,7 +1046,7 @@ export const CalendarColumn: FC<{
         className={clsx(
           'relative flex flex-col flex-1 text-white rounded-[8px] min-h-[70px]',
           display === 'month' && 'mobile:min-h-[44px]',
-          canDrop && 'border border-[#612BD3]'
+          canDrop && 'border border-btnPrimary'
         )}
       >
         <div
@@ -1152,7 +1152,7 @@ export const CalendarColumn: FC<{
               )}
               {display === 'day' && (
                 <div
-                  className={`group/day w-full h-full rounded-[10px] py-[10px] flex-wrap hover:border hover:border-seventh flex justify-center items-center gap-[20px] mobile:gap-[12px]`}
+                  className={`group/day w-full h-full rounded-[10px] py-[10px] flex-wrap hover:border hover:border-btnPrimary flex justify-center items-center gap-[20px] mobile:gap-[12px]`}
                 >
                   {/* the channels are faded until the slot is hovered, a brand
                       mark can't be: it only shows with the hover (see isBrandMark) */}
