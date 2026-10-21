@@ -213,12 +213,12 @@ export class BillingController {
       try {
         await this._notificationService.sendEmail(
           user.email,
-          'Your Postiz subscription is set to cancel',
+          'Your Kaido Publish subscription is set to cancel',
           `Your subscription is pending cancellation and will end on ${dayjs(
             result.cancel_at
           ).format(
             'D MMM, YYYY'
-          )} (UTC), the end of your current billing cycle. Until then you can keep using Postiz as usual. Changed your mind? You can reactivate at any time from the <a href="${
+          )} (UTC), the end of your current billing cycle. Until then you can keep using Kaido Publish as usual. Changed your mind? You can reactivate at any time from the <a href="${
             process.env.FRONTEND_URL
           }/billing">Billing page</a>.`
         );

@@ -402,7 +402,7 @@ export class NoAuthIntegrationsController {
     );
     if (!ability.can(AuthorizationActions.Create, Sections.CHANNEL)) {
       throw new HttpException(
-        'This Postiz workspace reached the channel limit of its plan, it has to be upgraded before another channel can be added',
+        'This Kaido Publish workspace reached the channel limit of its plan, it has to be upgraded before another channel can be added',
         400
       );
     }

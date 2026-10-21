@@ -283,7 +283,7 @@ const ExtensionNotFound: FC = () => {
       <p className="text-[14px] text-textColor/80">
         {t(
           'extension_not_available',
-          'The Postiz browser extension is not installed or disabled. You need to install and enable it before connecting this channel.'
+          'The Kaido Publish browser extension is not installed or disabled. You need to install and enable it before connecting this channel.'
         )}
       </p>
       <div className="flex gap-[10px]">
@@ -353,7 +353,7 @@ export const useExtensionConnect = () => {
         toaster.show(
           t(
             'extension_not_installed',
-            'Postiz browser extension is not installed or not reachable.'
+            'Kaido Publish browser extension is not installed or not reachable.'
           ),
           'warning'
         );
@@ -452,7 +452,7 @@ const ChromeExtensionWarning: FC<{
           We will store your cookies securely to facilitate the connection.
         </li>
         <li>
-          Postiz does not take responsibility for any issues arising or account
+          Kaido Publish does not take responsibility for any issues arising or account
           termination due to the use of this method.
         </li>
       </ul>

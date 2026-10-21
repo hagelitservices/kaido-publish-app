@@ -322,7 +322,7 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
                     <div className="mt-[10px] text-[14px]">
                       {t(
                         'delete_published_post_note',
-                        'A published post is removed from Postiz only and stays live where it was published.'
+                        'A published post is removed from Kaido Publish only and stays live where it was published.'
                       )}
                     </div>
                   )}
@@ -383,7 +383,7 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
           (existingData.posts?.[0]?.state === 'PUBLISHED'
             ? ` ${t(
                 'delete_this_published_post_note',
-                'It is removed from Postiz only and stays live where it was published.'
+                'It is removed from Kaido Publish only and stays live where it was published.'
               )}`
             : ''),
         t('yes_delete_it', 'Yes, delete it!')
