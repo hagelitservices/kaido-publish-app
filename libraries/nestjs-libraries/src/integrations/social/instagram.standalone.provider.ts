@@ -1,3 +1,4 @@
+import { oauthFrontendUrl } from '@gitroom/nestjs-libraries/integrations/social/oauth.redirect';
 import {
   AuthTokenDetails,
   PostDetails,
@@ -119,9 +120,9 @@ export class InstagramStandaloneProvider
           process.env.INSTAGRAM_APP_ID
         }&redirect_uri=${encodeURIComponent(
           `${
-            process?.env.FRONTEND_URL?.indexOf('https') == -1
-              ? `https://redirectmeto.com/${process?.env.FRONTEND_URL}`
-              : `${process?.env.FRONTEND_URL}`
+            oauthFrontendUrl()?.indexOf('https') == -1
+              ? `https://redirectmeto.com/${oauthFrontendUrl()}`
+              : `${oauthFrontendUrl()}`
           }/integrations/social/instagram-standalone`
         )}&response_type=code&scope=${encodeURIComponent(
           this.scopes.join(',')
@@ -143,9 +144,9 @@ export class InstagramStandaloneProvider
     formData.append(
       'redirect_uri',
       `${
-        process?.env.FRONTEND_URL?.indexOf('https') == -1
-          ? `https://redirectmeto.com/${process?.env.FRONTEND_URL}`
-          : `${process?.env.FRONTEND_URL}`
+        oauthFrontendUrl()?.indexOf('https') == -1
+          ? `https://redirectmeto.com/${oauthFrontendUrl()}`
+          : `${oauthFrontendUrl()}`
       }/integrations/social/instagram-standalone`
     );
     formData.append('code', params.code);

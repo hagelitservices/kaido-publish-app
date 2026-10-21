@@ -1,3 +1,4 @@
+import { oauthFrontendUrl } from '@gitroom/nestjs-libraries/integrations/social/oauth.redirect';
 import {
   AuthTokenDetails,
   PostDetails,
@@ -71,10 +72,10 @@ export class SlackProvider extends SocialAbstract implements SocialProvider {
         process.env.SLACK_ID
       }&redirect_uri=${encodeURIComponent(
         `${
-          process?.env?.FRONTEND_URL?.indexOf('https') === -1
+          oauthFrontendUrl()?.indexOf('https') === -1
             ? 'https://redirectmeto.com/'
             : ''
-        }${process?.env?.FRONTEND_URL}/integrations/social/slack`
+        }${oauthFrontendUrl()}/integrations/social/slack`
       )}&scope=channels:read,chat:write,users:read,channels:join,chat:write.customize&state=${state}`,
       codeVerifier: makeSecureId(10),
       state,
@@ -97,10 +98,10 @@ export class SlackProvider extends SocialAbstract implements SocialProvider {
           client_secret: process.env.SLACK_SECRET!,
           code: params.code,
           redirect_uri: `${
-            process?.env?.FRONTEND_URL?.indexOf('https') === -1
+            oauthFrontendUrl()?.indexOf('https') === -1
               ? 'https://redirectmeto.com/'
               : ''
-          }${process?.env?.FRONTEND_URL}/integrations/social/slack${
+          }${oauthFrontendUrl()}/integrations/social/slack${
             params.refresh ? `?refresh=${params.refresh}` : ''
           }`,
         }),
