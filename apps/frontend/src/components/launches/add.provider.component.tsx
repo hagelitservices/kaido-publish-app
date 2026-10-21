@@ -20,6 +20,7 @@ import clsx from 'clsx';
 import { PlatformIcon } from '@gitroom/frontend/components/ui/platform.icon.component';
 import copy from 'copy-to-clipboard';
 import { capitalize } from 'lodash';
+import { KAIDO_CHANNELS } from '@gitroom/frontend/components/kaido/kaido.channels';
 const resolver = classValidatorResolver(ApiKeyDto);
 
 export const useAddProvider = (update?: () => void, invite?: boolean) => {
@@ -715,6 +716,7 @@ export const AddProviderComponent: FC<{
           )}
         >
           {social
+            .filter((item) => KAIDO_CHANNELS.includes(item.identifier))
             .filter((item) => {
               if (!props.invite) {
                 return true;
