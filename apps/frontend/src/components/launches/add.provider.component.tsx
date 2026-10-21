@@ -20,7 +20,8 @@ import clsx from 'clsx';
 import { PlatformIcon } from '@gitroom/frontend/components/ui/platform.icon.component';
 import copy from 'copy-to-clipboard';
 import { capitalize } from 'lodash';
-import { KAIDO_CHANNELS } from '@gitroom/frontend/components/kaido/kaido.channels';
+import { kaidoChannelsFor } from '@gitroom/frontend/components/kaido/kaido.channels';
+import { useUser } from '@gitroom/frontend/components/layout/user.context';
 const resolver = classValidatorResolver(ApiKeyDto);
 
 export const useAddProvider = (update?: () => void, invite?: boolean) => {
@@ -703,6 +704,8 @@ export const AddProviderComponent: FC<{
   );
 
   const t = useT();
+  const user = useUser();
+  const kaidoChannels = kaidoChannelsFor(user?.orgId);
 
   return (
     <div className="w-full flex flex-col gap-[20px] rounded-[4px] relative]">
@@ -716,7 +719,7 @@ export const AddProviderComponent: FC<{
           )}
         >
           {social
-            .filter((item) => KAIDO_CHANNELS.includes(item.identifier))
+            .filter((item) => kaidoChannels.includes(item.identifier))
             .filter((item) => {
               if (!props.invite) {
                 return true;
