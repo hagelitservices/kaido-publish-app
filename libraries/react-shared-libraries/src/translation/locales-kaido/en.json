@@ -61,5 +61,6 @@
   "kaido_auth_publish_text": "At the scheduled time the post goes out through the platform’s official API. The status shows up in the calendar.",
   "hubspot_installed": "Kaido Publish is installed in HubSpot",
   "hubspot_installed_description": "Connect the channels you want to post to here in Kaido Publish. Then, in HubSpot, open Agent Hub > Agent Builder, add a tool, pick Kaido Publish MCP under MCP Servers and click Connect and add.",
-  "media_settings_section_tooltip": "Thumbnails apply to videos in the main post and are sent to every channel that supports them. YouTube may ignore them on videos it treats as Shorts (vertical, up to 3 minutes) without failing the publish, and requires a phone-verified channel for custom thumbnails. If YouTube rejects the thumbnail the video is still published, and Kaido Publish cannot check eligibility in advance."
+  "media_settings_section_tooltip": "Thumbnails apply to videos in the main post and are sent to every channel that supports them. YouTube may ignore them on videos it treats as Shorts (vertical, up to 3 minutes) without failing the publish, and requires a phone-verified channel for custom thumbnails. If YouTube rejects the thumbnail the video is still published, and Kaido Publish cannot check eligibility in advance.",
+  "click_to_exit_global_editing": "Click to write a separate version of this post for this channel"
 }
