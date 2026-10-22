@@ -41,7 +41,8 @@ import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
 import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
 import { useModals } from '@gitroom/frontend/components/layout/new-modal';
-import { capitalize, sortBy } from 'lodash';
+import { sortBy } from 'lodash';
+import { kaidoNetworkName } from '@gitroom/frontend/components/kaido/kaido.channels';
 import { SelectCustomer } from '@gitroom/frontend/components/launches/select.customer';
 import { CopilotPopup } from '@copilotkit/react-ui';
 import { DummyCodeComponent } from '@gitroom/frontend/components/new-launch/dummy.code.component';
@@ -147,7 +148,7 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
       (p) => postBlockers[p.integration.id]
     );
     return blocked
-      ? `${capitalize(blocked.integration.identifier.split('-')[0])} (${
+      ? `${kaidoNetworkName(blocked.integration.identifier)} (${
           blocked.integration.name
         }): ${postBlockers[blocked.integration.id]}`
       : '';
@@ -787,7 +788,7 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
 
         for (const item of notEnoughChars) {
           toaster.show(
-            `${capitalize(item.identifier.split('-')[0])} (${item.name}):` +
+            `${kaidoNetworkName(item.identifier)} (${item.name}):` +
               ' ' +
               t(
                 'post_needs_content_or_image',
@@ -808,7 +809,7 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
         for (const item of notDrafts) {
           if (item.valid === false) {
             toaster.show(
-              `${capitalize(item.identifier.split('-')[0])} (${item.name}): ${
+              `${kaidoNetworkName(item.identifier)} (${item.name}): ${
                 item.settingsError ||
                 t('please_fix_your_settings', 'Please fix your settings')
               }`,
@@ -822,7 +823,7 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
 
           if (item.errors !== true) {
             toaster.show(
-              `${capitalize(item.identifier.split('-')[0])} (${item.name}): ${
+              `${kaidoNetworkName(item.identifier)} (${item.name}): ${
                 item.errors
               }`,
               'warning'

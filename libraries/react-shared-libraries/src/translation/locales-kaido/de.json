@@ -72,5 +72,6 @@
   "connect_link_title": "Kaido Publish möchte sich mit Ihrem {{platform}}-Konto verbinden",
   "connect_link_automate": "Kaido Publish automatisiert Ihr {{platform}}-Konto: Es kann in Ihrem Namen Beiträge planen und veröffentlichen",
   "connect_link_system": "Alles läuft über das Kaido Publish-System: Ihr Konto wird einem Kaido Publish-Arbeitsbereich hinzugefügt und von dort verwaltet",
-  "connect_link_redirect": "Danach werden Sie zu {{site}} weitergeleitet, einer Website außerhalb von Kaido Publish"
+  "connect_link_redirect": "Danach werden Sie zu {{site}} weitergeleitet, einer Website außerhalb von Kaido Publish",
+  "click_to_exit_global_editing": "Klicken, um für diesen Kanal eine eigene Fassung des Beitrags zu schreiben"
 }

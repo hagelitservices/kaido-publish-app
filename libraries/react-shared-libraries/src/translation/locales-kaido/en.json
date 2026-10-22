@@ -67,5 +67,6 @@
   "connect_link_title": "Kaido Publish wants to connect to your {{platform}}",
   "connect_link_automate": "Kaido Publish will automate your {{platform}} account: it can schedule and publish posts on your behalf",
   "connect_link_system": "Everything goes through the Kaido Publish system: your account is added to a Kaido Publish workspace and managed from there",
-  "connect_link_redirect": "When you are done you will be sent to {{site}}, a website outside of Kaido Publish"
+  "connect_link_redirect": "When you are done you will be sent to {{site}}, a website outside of Kaido Publish",
+  "click_to_exit_global_editing": "Click to write a separate version of this post for this channel"
 }
