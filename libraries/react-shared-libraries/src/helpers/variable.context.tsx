@@ -36,7 +36,7 @@ interface VariableContextInterface {
   googleAdsTrialTracking?: string;
   recaptchaSiteKey?: string;
 }
-const VariableContext = createContext({
+const variableDefaults = {
   stripeClient: '',
   billingEnabled: false,
   isGeneral: true,
@@ -69,13 +69,17 @@ const VariableContext = createContext({
   sentryDsn: '',
   extensionId: '',
   recaptchaSiteKey: '',
-} as VariableContextInterface);
+} as VariableContextInterface;
+const VariableContext = createContext(variableDefaults);
+// Kaido (I14b): Layouts reichen ungesetzte Werte gar nicht erst durch (ifSet), damit die Seite keine
+// Schlüssel ungenutzter Dienste ausliefert; hier kommen die Vorgabewerte wieder dazu.
 export const VariableContextComponent: FC<
-  VariableContextInterface & {
+  Partial<VariableContextInterface> & {
     children: ReactNode;
   }
 > = (props) => {
-  const { children, ...otherProps } = props;
+  const { children, ...given } = props;
+  const otherProps = { ...variableDefaults, ...given } as VariableContextInterface;
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // @ts-ignore
