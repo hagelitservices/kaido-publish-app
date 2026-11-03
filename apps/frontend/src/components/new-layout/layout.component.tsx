@@ -38,7 +38,6 @@ import { ChromeExtensionComponent } from '@gitroom/frontend/components/layout/ch
 import NotificationComponent from '@gitroom/frontend/components/notifications/notification.component';
 import { OrganizationSelector } from '@gitroom/frontend/components/layout/organization.selector';
 import { InvoicesComponent } from '@gitroom/frontend/components/layout/invoices.component';
-import { StreakComponent } from '@gitroom/frontend/components/layout/streak.component';
 import { PreConditionComponent } from '@gitroom/frontend/components/layout/pre-condition.component';
 import { AttachToFeedbackIcon } from '@gitroom/frontend/components/new-layout/sentry.feedback.component';
 import { FirstBillingComponent } from '@gitroom/frontend/components/billing/first.billing.component';
@@ -168,8 +167,7 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                           <Title />
                         </div>
                         <div className="flex gap-[20px] mobile:gap-[14px] mobile:items-center text-textItemBlur">
-                          <StreakComponent />
-                          <div className="w-[1px] h-[20px] bg-blockSeparator mobile:hidden" />
+                          {/* kaido: keine Streak-Flamme (I14f, Wiedererkennbarkeit) */}
                           <OrganizationSelector />
                           <InvoicesComponent />
                           <div className="hover:text-newTextColor">
