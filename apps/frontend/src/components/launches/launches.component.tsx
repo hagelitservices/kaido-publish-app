@@ -757,7 +757,7 @@ export const LaunchesComponent = () => {
             </div>
             {/* AGPL-3.0 §13: Nutzer im Netz bekommen den Quelltext der laufenden Fassung angeboten. */}
             <a
-              href="https://github.com/hagelitservices/postiz-app/tree/kaido/main"
+              href="https://github.com/hagelitservices/kaido-publish-app/tree/kaido/main"
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t('source_code_agpl', 'Source code (AGPL-3.0)')}
