@@ -9,6 +9,7 @@ import { ReactNode } from 'react';
 import { jakartaSans } from '@gitroom/frontend/fonts/plus-jakarta-sans/plus.jakarta.sans.font';
 import clsx from 'clsx';
 import { VariableContextComponent } from '@gitroom/react/helpers/variable.context';
+import { ifSet } from '@gitroom/react/helpers/if.set';
 import UtmSaver from '@gitroom/helpers/utils/utm.saver';
 
 export default async function AppLayout({ children }: { children: ReactNode }) {
@@ -28,29 +29,29 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
           stripeClient=""
           environment={process.env.NODE_ENV!}
           backendUrl={process.env.NEXT_PUBLIC_BACKEND_URL!}
-          plontoKey={process.env.NEXT_PUBLIC_POLOTNO!}
+          {...ifSet('plontoKey', process.env.NEXT_PUBLIC_POLOTNO!)}
           billingEnabled={!!process.env.STRIPE_PUBLISHABLE_KEY}
-          discordUrl={process.env.NEXT_PUBLIC_DISCORD_SUPPORT!}
+          {...ifSet('discordUrl', process.env.NEXT_PUBLIC_DISCORD_SUPPORT!)}
           frontEndUrl={process.env.FRONTEND_URL!}
           isGeneral={!!process.env.IS_GENERAL}
-          genericOauth={!!process.env.POSTIZ_GENERIC_OAUTH}
-          oauthLogoUrl={process.env.NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL!}
-          oauthDisplayName={process.env.NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME!}
+          {...ifSet('genericOauth', !!process.env.POSTIZ_GENERIC_OAUTH)}
+          {...ifSet('oauthLogoUrl', process.env.NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL!)}
+          {...ifSet('oauthDisplayName', process.env.NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME!)}
           uploadDirectory={process.env.NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY!}
           cloudflareUrl={process.env.CLOUDFLARE_BUCKET_URL || ''}
           mainUrl={process.env.MAIN_URL || ''}
-          mcpUrl={process.env.MCP_URL}
-          dub={false}
-          facebookPixel={process.env.NEXT_PUBLIC_FACEBOOK_PIXEL!}
-          telegramBotName={process.env.TELEGRAM_BOT_NAME!}
-          neynarClientId={process.env.NEYNAR_CLIENT_ID!}
-          appleClientId={process.env.APPLE_CLIENT_ID!}
+          {...ifSet('mcpUrl', process.env.MCP_URL)}
+          {...ifSet('dub', false)}
+          {...ifSet('facebookPixel', process.env.NEXT_PUBLIC_FACEBOOK_PIXEL!)}
+          {...ifSet('telegramBotName', process.env.TELEGRAM_BOT_NAME!)}
+          {...ifSet('neynarClientId', process.env.NEYNAR_CLIENT_ID!)}
+          {...ifSet('appleClientId', process.env.APPLE_CLIENT_ID!)}
           isSecured={!process.env.NOT_SECURED}
-          isChatBase={false}
+          {...ifSet('isChatBase', false)}
           disableImageCompression={!!process.env.DISABLE_IMAGE_COMPRESSION}
-          disableXAnalytics={!!process.env.DISABLE_X_ANALYTICS}
-          sentryDsn={process.env.NEXT_PUBLIC_SENTRY_DSN!}
-          extensionId={process.env.EXTENSION_ID || ''}
+          {...ifSet('disableXAnalytics', !!process.env.DISABLE_X_ANALYTICS)}
+          {...ifSet('sentryDsn', process.env.NEXT_PUBLIC_SENTRY_DSN!)}
+          {...ifSet('extensionId', process.env.EXTENSION_ID || '')}
           mediaProcessing={
             process.env.STORAGE_PROVIDER === 'cloudflare' &&
             !!process.env.RUNPOD_API_KEY &&
