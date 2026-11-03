@@ -69,5 +69,12 @@
   "media_settings_section_tooltip": "Vorschaubilder gelten für Videos im Hauptbeitrag und werden an jeden Kanal gesendet, der sie unterstützt. YouTube kann sie bei Videos ignorieren, die als Shorts behandelt werden (vertikal, bis zu 3 Minuten), ohne dass die Veröffentlichung fehlschlägt, und erfordert für benutzerdefinierte Vorschaubilder einen kanal, der per Telefon verifiziert ist. Wenn YouTube das Vorschaubild ablehnt, wird das Video trotzdem veröffentlicht, und Kaido Publish kann die Eignung nicht im Voraus prüfen.",
   "click_to_exit_global_editing": "Klicken, um für diesen Kanal eine eigene Fassung des Beitrags zu schreiben",
   "settings_about": "Über",
-  "settings_about_license": "Diese App ist freie Software unter der GNU Affero General Public License 3.0. Den vollständigen Quelltext der laufenden Fassung bekommst du hier."
+  "settings_about_license": "Diese App ist freie Software unter der GNU Affero General Public License 3.0. Den vollständigen Quelltext der laufenden Fassung bekommst du hier.",
+  "check_circles_above": "Zuerst einen Kanal wählen",
+  "repeat_post_every": "Keine Wiederholung",
+  "repeat_post_every_label": "Wiederholung:",
+  "repeat_post": "Wiederholen",
+  "add_comment_or_post": "Folgebeitrag hinzufügen",
+  "add_comment": "Kommentar ergänzen",
+  "start_writing_your_post": "Die Vorschau erscheint hier, sobald du schreibst"
 }
