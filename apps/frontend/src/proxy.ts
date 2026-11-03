@@ -110,7 +110,7 @@ export async function proxy(request: NextRequest) {
 
   // Kaido (I4/I6): "/" of publish.kaidostudios.de is the product page (served
   // by nginx), so signed-in users go straight to the app instead of "/".
-  const appHome = !!process.env.IS_GENERAL ? '/launches' : `/analytics`;
+  const appHome = !!process.env.IS_GENERAL ? '/calendar' : `/analytics`;
 
   // If the url is /auth and the cookie exists, redirect to the app
   if (nextUrl.pathname.startsWith('/auth') && authCookie) {
@@ -167,7 +167,7 @@ export async function proxy(request: NextRequest) {
     if (nextUrl.pathname === '/') {
       return NextResponse.redirect(
         new URL(
-          !!process.env.IS_GENERAL ? '/launches' : `/analytics`,
+          !!process.env.IS_GENERAL ? '/calendar' : `/analytics`,
           nextUrl.href,
         ),
       );
