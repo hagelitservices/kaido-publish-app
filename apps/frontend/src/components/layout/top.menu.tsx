@@ -40,7 +40,7 @@ export const useMenuItem = () => {
           />
         </svg>
       ),
-      path: '/launches',
+      path: '/calendar', // Kaido (I14e)
     },
     {
       name: 'Agent',

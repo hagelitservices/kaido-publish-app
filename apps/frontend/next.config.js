@@ -36,6 +36,8 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Kaido (I14e): the calendar lives at /calendar; old /launches links keep working.
+      { source: '/launches', destination: '/calendar', permanent: false },
       {
         source: '/api/uploads/:path*',
         destination:
@@ -46,6 +48,8 @@ const nextConfig = {
   },
   async rewrites() {
     return [
+      // Kaido (I14e): /calendar renders the upstream /launches page.
+      { source: '/calendar', destination: '/launches' },
       {
         source: '/uploads/:path*',
         destination:
