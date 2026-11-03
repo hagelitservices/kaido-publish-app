@@ -89,13 +89,6 @@ const EmailNotificationsComponent = () => {
     [updateSetting]
   );
 
-  const handleStreakEmailsChange = useCallback(
-    (value: 'on' | 'off') => {
-      updateSetting('sendStreakEmails', value === 'on');
-    },
-    [updateSetting]
-  );
-
   if (isLoading) {
     return (
       <div className="my-[16px] mt-[16px] bg-sixth border-fifth border rounded-[4px] p-[24px]">
@@ -144,24 +137,6 @@ const EmailNotificationsComponent = () => {
         <Slider
           value={localSettings.sendFailureEmails ? 'on' : 'off'}
           onChange={handleFailureEmailsChange}
-          fill={true}
-        />
-      </div>
-      <div className="flex items-center justify-between">
-        <div className="flex flex-col">
-          <div className="text-[14px]">
-            {t('streak_emails', 'Streak Reminder Emails')}
-          </div>
-          <div className="text-[12px] text-customColor18">
-            {t(
-              'streak_emails_description',
-              'Receive email reminders when your posting streak is about to end'
-            )}
-          </div>
-        </div>
-        <Slider
-          value={localSettings.sendStreakEmails ? 'on' : 'off'}
-          onChange={handleStreakEmailsChange}
           fill={true}
         />
       </div>
