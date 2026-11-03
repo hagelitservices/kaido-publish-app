@@ -3,6 +3,6 @@ import { Controller, Get } from '@nestjs/common';
 export class RootController {
   @Get('/')
   getRoot(): string {
-    return 'App is running!';
+    return 'OK'; // Kaido (I14f): neutral, no upstream greeting
   }
 }
