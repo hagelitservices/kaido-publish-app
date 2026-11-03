@@ -749,27 +749,7 @@ export const LaunchesComponent = () => {
               {billingEnabled && user?.isLifetime && (
                 <div>{capitalize(user?.tier?.current || '')} tier</div>
               )}
-              <div>
-                {process.env.NEXT_PUBLIC_VERSION
-                  ? process.env.NEXT_PUBLIC_VERSION
-                  : ''}
-              </div>
             </div>
-            {/* AGPL-3.0 §13: Nutzer im Netz bekommen den Quelltext der laufenden Fassung angeboten. */}
-            <a
-              href="https://github.com/hagelitservices/kaido-publish-app/tree/kaido/main"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t('source_code_agpl', 'Source code (AGPL-3.0)')}
-              className="self-center whitespace-nowrap px-[8px] py-[6px] text-[12px] underline underline-offset-2 opacity-80 hover:opacity-100 rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <span className="group-[.sidebar]:hidden">
-                {t('source_code_agpl', 'Source code (AGPL-3.0)')}
-              </span>
-              <span translate="no" className="hidden group-[.sidebar]:inline">
-                AGPL
-              </span>
-            </a>
           </div>
         </div>
         <div className="bg-newBgColorInner flex-1 min-w-0 flex-col flex p-[20px] mobile:p-[12px] gap-[12px] mobile:min-h-[600px]">

@@ -67,5 +67,7 @@
   "hubspot_installed": "Kaido Publish ist in HubSpot installiert",
   "hubspot_installed_description": "Verbinden Sie hier in Kaido Publish die Kanäle, auf denen Sie posten möchten. Öffnen Sie dann in HubSpot Agent Hub > Agent Builder, fügen Sie ein Tool hinzu, wählen Sie unter MCP Servers Kaido Publish MCP aus und klicken Sie auf Connect and add.",
   "media_settings_section_tooltip": "Vorschaubilder gelten für Videos im Hauptbeitrag und werden an jeden Kanal gesendet, der sie unterstützt. YouTube kann sie bei Videos ignorieren, die als Shorts behandelt werden (vertikal, bis zu 3 Minuten), ohne dass die Veröffentlichung fehlschlägt, und erfordert für benutzerdefinierte Vorschaubilder einen kanal, der per Telefon verifiziert ist. Wenn YouTube das Vorschaubild ablehnt, wird das Video trotzdem veröffentlicht, und Kaido Publish kann die Eignung nicht im Voraus prüfen.",
-  "click_to_exit_global_editing": "Klicken, um für diesen Kanal eine eigene Fassung des Beitrags zu schreiben"
+  "click_to_exit_global_editing": "Klicken, um für diesen Kanal eine eigene Fassung des Beitrags zu schreiben",
+  "settings_about": "Über",
+  "settings_about_license": "Diese App ist freie Software unter der GNU Affero General Public License 3.0. Den vollständigen Quelltext der laufenden Fassung bekommst du hier."
 }
