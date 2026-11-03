@@ -73,5 +73,7 @@
   "connect_link_automate": "Kaido Publish automatisiert Ihr {{platform}}-Konto: Es kann in Ihrem Namen Beiträge planen und veröffentlichen",
   "connect_link_system": "Alles läuft über das Kaido Publish-System: Ihr Konto wird einem Kaido Publish-Arbeitsbereich hinzugefügt und von dort verwaltet",
   "connect_link_redirect": "Danach werden Sie zu {{site}} weitergeleitet, einer Website außerhalb von Kaido Publish",
-  "click_to_exit_global_editing": "Klicken, um für diesen Kanal eine eigene Fassung des Beitrags zu schreiben"
+  "click_to_exit_global_editing": "Klicken, um für diesen Kanal eine eigene Fassung des Beitrags zu schreiben",
+  "settings_about": "Über",
+  "settings_about_license": "Diese App ist freie Software unter der GNU Affero General Public License 3.0. Den vollständigen Quelltext der laufenden Fassung bekommst du hier."
 }

@@ -68,5 +68,7 @@
   "connect_link_automate": "Kaido Publish will automate your {{platform}} account: it can schedule and publish posts on your behalf",
   "connect_link_system": "Everything goes through the Kaido Publish system: your account is added to a Kaido Publish workspace and managed from there",
   "connect_link_redirect": "When you are done you will be sent to {{site}}, a website outside of Kaido Publish",
-  "click_to_exit_global_editing": "Click to write a separate version of this post for this channel"
+  "click_to_exit_global_editing": "Click to write a separate version of this post for this channel",
+  "settings_about": "About",
+  "settings_about_license": "This app is free software under the GNU Affero General Public License 3.0. You can get the complete source code of the running version."
 }

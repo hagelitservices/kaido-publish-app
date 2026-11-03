@@ -7,6 +7,7 @@ import AuthenticationComponent from '@gitroom/frontend/components/settings/authe
 import EmailNotificationsComponent from '@gitroom/frontend/components/settings/email-notifications.component';
 import ShortlinkPreferenceComponent from '@gitroom/frontend/components/settings/shortlink-preference.component';
 import DeleteAccountComponent from '@gitroom/frontend/components/settings/delete-account.component';
+import AboutComponent from '@gitroom/frontend/components/settings/about.component';
 
 const MetricComponent = dynamic(
   () => import('@gitroom/frontend/components/settings/metric.component'),
@@ -25,6 +26,7 @@ export const GlobalSettings = () => {
       <EmailNotificationsComponent />
       <ShortlinkPreferenceComponent />
       <DeleteAccountComponent />
+      <AboutComponent />
     </div>
   );
 };
