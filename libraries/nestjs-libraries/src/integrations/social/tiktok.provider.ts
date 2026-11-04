@@ -21,6 +21,7 @@ import { createReadStream } from 'fs';
 import { getSsrfSafeDispatcher } from '@gitroom/nestjs-libraries/dtos/webhooks/ssrf.safe.dispatcher';
 import { Integration } from '@prisma/client';
 import { Rules } from '@gitroom/nestjs-libraries/chat/rules.description.decorator';
+import { DashboardFunction } from '@gitroom/nestjs-libraries/integrations/dashboard.function.decorator';
 
 @Rules(
   [
@@ -460,6 +461,9 @@ export class TiktokProvider extends SocialAbstract implements SocialProvider {
   // IntegrationsController.functionIntegration. A creator who cannot post right
   // now comes back as canPost: false instead of an exception, so the composer
   // can stop the attempt and say why (guideline 1b).
+  // Must be dashboard-callable, otherwise /integrations/function answers
+  // "Function not found" and the composer shows no creator name (04.11.2026).
+  @DashboardFunction()
   async creatorInfo(accessToken: string) {
     let body: any;
     try {
