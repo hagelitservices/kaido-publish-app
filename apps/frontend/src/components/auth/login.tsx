@@ -81,7 +81,10 @@ export function Login({ registration = true }: { registration?: boolean }) {
             ) : !isGeneral ? (
               <GithubProvider />
             ) : null}
-            <GoogleProvider />
+            {/* own row: flex-1 inside the flex-col parent would collapse the 52px height */}
+            <div className="flex">
+              <GoogleProvider />
+            </div>
             {hasProvider && (
             <div className="h-[20px] mb-[24px] mt-[24px] relative">
               <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
