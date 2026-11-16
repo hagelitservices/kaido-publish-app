@@ -55,9 +55,11 @@ export class GoogleProvider extends AuthProviderAbstract {
       .oauth2({ version: 'v2', auth: client })
       .userinfo.get();
 
+    // Kaido: only a Google-verified address may be used to find an existing
+    // account by email (auth.service findProviderUser)
     return {
       id: data.id!,
-      email: data.email!,
+      email: data.verified_email ? data.email! : '',
     };
   }
 }

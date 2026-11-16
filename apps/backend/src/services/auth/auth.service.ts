@@ -150,10 +150,7 @@ export class AuthService {
       throw new Error('Invalid provider token');
     }
 
-    const user = await this._userService.getUserByProvider(
-      providerUser.id,
-      provider
-    );
+    const user = await this.findProviderUser(provider, providerUser);
     if (user) {
       return user;
     }
@@ -318,15 +315,33 @@ export class AuthService {
     if (!user) {
       throw new Error('Invalid user');
     }
-    const checkExists = await this._userService.getUserByProvider(
-      user.id,
-      provider as Provider
+    const checkExists = await this.findProviderUser(
+      provider as Provider,
+      user
     );
     if (checkExists) {
       return { jwt: await this.jwt(checkExists) };
     }
 
     return { token };
+  }
+
+  // Kaido: "Sign in with Google" also opens an existing email/password
+  // account with the same Google-verified address, so people do not end up in
+  // a second, empty account (registration stays disabled).
+  private async findProviderUser(
+    provider: Provider,
+    providerUser: { id: string; email: string }
+  ) {
+    const byProvider = await this._userService.getUserByProvider(
+      providerUser.id,
+      provider
+    );
+    if (byProvider || provider !== Provider.GOOGLE || !providerUser.email) {
+      return byProvider;
+    }
+    const byEmail = await this._userService.getUserByEmail(providerUser.email);
+    return byEmail?.activated ? byEmail : null;
   }
 
   private async jwt(user: User) {
