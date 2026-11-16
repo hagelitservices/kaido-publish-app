@@ -10,6 +10,7 @@ import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { LoginUserDto } from '@gitroom/nestjs-libraries/dtos/auth/login.user.dto';
 import { GithubProvider } from '@gitroom/frontend/components/auth/providers/github.provider';
 import { OauthProvider } from '@gitroom/frontend/components/auth/providers/oauth.provider';
+import { GoogleProvider } from '@gitroom/frontend/components/auth/providers/google.provider';
 import { useVariables } from '@gitroom/react/helpers/variable.context';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
 type Inputs = {
@@ -23,7 +24,7 @@ export function Login({ registration = true }: { registration?: boolean }) {
   const [loading, setLoading] = useState(false);
   const [notActivated, setNotActivated] = useState(false);
   const { isGeneral, genericOauth } = useVariables();
-  const hasProvider = !isGeneral || !!genericOauth;
+  const hasProvider = true;
   const resolver = useMemo(() => {
     return classValidatorResolver(LoginUserDto);
   }, []);
@@ -66,8 +67,9 @@ export function Login({ registration = true }: { registration?: boolean }) {
               {t('sign_in', 'Sign In')}
             </h1>
           </div>
-          {/* Kaido (I14f): only sign-in methods that are configured. Google, Apple,
-              Farcaster and wallet sign-in are not part of the build. */}
+          {/* Kaido (I14f): only sign-in methods that are configured. Google sign-in
+              (Jens 16.11.2026) opens the existing account with the same verified
+              address; Apple, Farcaster and wallet sign-in are not part of the build. */}
           {hasProvider && (
             <div className="text-[14px] mt-[32px] mb-[12px]">
               {t('continue_with', 'Continue With')}
@@ -79,6 +81,7 @@ export function Login({ registration = true }: { registration?: boolean }) {
             ) : !isGeneral ? (
               <GithubProvider />
             ) : null}
+            <GoogleProvider />
             {hasProvider && (
             <div className="h-[20px] mb-[24px] mt-[24px] relative">
               <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
