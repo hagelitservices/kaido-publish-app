@@ -8,10 +8,13 @@ import {
 const defaultRedirect = () =>
   `${process.env.FRONTEND_URL}/integrations/social/youtube`;
 
+// Kaido: sign-in uses its own Google client ("Kaido Publish" on the consent
+// screen, profile + email only); the YouTube client is the fallback.
 const makeClient = (redirectUri: string) =>
   new google.auth.OAuth2({
-    clientId: process.env.YOUTUBE_CLIENT_ID,
-    clientSecret: process.env.YOUTUBE_CLIENT_SECRET,
+    clientId: process.env.GOOGLE_LOGIN_CLIENT_ID || process.env.YOUTUBE_CLIENT_ID,
+    clientSecret:
+      process.env.GOOGLE_LOGIN_CLIENT_SECRET || process.env.YOUTUBE_CLIENT_SECRET,
     redirectUri,
   });
 
