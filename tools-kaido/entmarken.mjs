@@ -12,8 +12,11 @@
 // der Bau, statt still eine wiedererkennbare Fassung auszuliefern.
 //
 // Bewusst NICHT angefasst: Umgebungsvariablen in Großbuchstaben (NEXT_PUBLIC_POSTIZ_…,
-// POSTIZ_GENERIC_OAUTH) und die Pfade der Dateien in public/ — beide stehen nur im Server-Teil.
-import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+// POSTIZ_GENERIC_OAUTH) — sie stehen nur im Server-Teil.
+// Dateien in public/ (postiz.svg, postiz-text.svg, postiz-fav.png; Inhalt ist schon die Kaido-Marke): seit v2.26.0
+// steht /postiz.svg auch im Browser-Code. Sie werden als kaido*.svg/png daneben kopiert und alle Pfade umgestellt
+// (21.11.2026; vorher blieb der Pfad geschützt, und der Bau scheiterte zwei Wochen an diesem Rest).
+import { copyFileSync, existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const FORK = 'https://github.com/hagelitservices/kaido-publish-app';
@@ -24,10 +27,11 @@ const MUSTER = /postiz|gitroom/i;
 // Platzhalter für Stellen, die stehen bleiben müssen.
 const SCHUTZ = [
   /\b[A-Z0-9_]*POSTIZ[A-Z0-9_]*\b(?<!\bPOSTIZ_API_KEY)/g, // Umgebungsvariablen
-  /\/postiz(?:-fav|-text)?\.(?:svg|png)\b/g, // Dateien in public/
 ];
 
 const REGELN = [
+  // Dateien in public/ — Kopien unter Kaido-Namen legt kopierePublic() an
+  [/\/postiz((?:-fav|-text)?\.(?:svg|png))\b/g, '/kaido$1'],
   // Quelltext-Links (AGPL) auf den eigenen Fork
   [/https?:\/\/github\.com\/gitroomhq\/(?:postiz-app|Kaido Publish-app|postiz-agent)\b/g, FORK],
   [/https?:\/\/github\.com\/hagelitservices\/postiz-app\b/g, FORK],
@@ -75,6 +79,14 @@ if (!ordner) {
   process.exit(2);
 }
 const pruefen = rest.includes('--pruefen');
+// public/ liegt neben .next; die Kaido-Kopien müssen da sein, bevor Pfade darauf zeigen
+if (!pruefen) {
+  const pub = join(ordner, '..', 'public');
+  for (const name of ['postiz.svg', 'postiz-text.svg', 'postiz-fav.png']) {
+    const quelle = join(pub, name);
+    if (existsSync(quelle)) copyFileSync(quelle, join(pub, name.replace('postiz', 'kaido')));
+  }
+}
 let geaendert = 0;
 const reste = [];
 for (const teil of ['static', 'server']) {
